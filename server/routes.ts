@@ -3,9 +3,11 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  app.get("/api/sensors", (req, res) => {
+  await storage.initialize();
+
+  app.get("/api/sensors", async (req, res) => {
     try {
-      const sensors = storage.getCurrentSensors();
+      const sensors = await storage.getCurrentSensors();
       res.json(sensors);
     } catch (error) {
       console.error("Error fetching sensors:", error);
@@ -13,9 +15,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/prediction", (req, res) => {
+  app.get("/api/prediction", async (req, res) => {
     try {
-      const prediction = storage.getLatestPrediction();
+      const prediction = await storage.getLatestPrediction();
       res.json(prediction);
     } catch (error) {
       console.error("Error fetching prediction:", error);
@@ -23,9 +25,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/farms", (req, res) => {
+  app.get("/api/farms", async (req, res) => {
     try {
-      const farms = storage.getFarms();
+      const farms = await storage.getFarms();
       res.json(farms);
     } catch (error) {
       console.error("Error fetching farms:", error);
@@ -33,9 +35,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/history", (req, res) => {
+  app.get("/api/history", async (req, res) => {
     try {
-      const history = storage.getHistoricalData();
+      const history = await storage.getHistoricalData();
       res.json(history);
     } catch (error) {
       console.error("Error fetching historical data:", error);
