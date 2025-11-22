@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Thermometer, Droplets, Sun, Activity, Wifi, AlertTriangle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import type { Farm, Prediction, SensorData, HistoricalDataPoint } from "@shared/schema";
+import type { SensorData, FarmStatus, PredictionResponse, HistoricalDataPoint } from "@shared/schema";
 import { SensorCard } from "@/components/sensor-card";
 import { PredictionCard } from "@/components/prediction-card";
 import { FarmTable } from "@/components/farm-table";
@@ -16,12 +16,12 @@ export default function Dashboard() {
     refetchInterval: 5000,
   });
 
-  const { data: prediction, isLoading: predictionLoading, error: predictionError } = useQuery<Prediction>({
+  const { data: prediction, isLoading: predictionLoading, error: predictionError } = useQuery<PredictionResponse>({
     queryKey: ["/api/prediction"],
     refetchInterval: 5000,
   });
 
-  const { data: farms, isLoading: farmsLoading, error: farmsError } = useQuery<Farm[]>({
+  const { data: farms, isLoading: farmsLoading, error: farmsError } = useQuery<FarmStatus[]>({
     queryKey: ["/api/farms"],
     refetchInterval: 5000,
   });
