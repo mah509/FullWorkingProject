@@ -1,0 +1,118 @@
+I want you to generate a full working project as a complete folder structure.
+
+**PROJECT NAME:** SmartStrawberry Farms – Cloud-Based Agriculture Dashboard
+
+**GOAL:**  
+Create a deployable web project (frontend + backend + simulated ML) that demonstrates a cloud-based smart farming system.  
+The project will be used for an academic assignment, and it must be simple, clean, and fully runnable.
+
+=========================
+== GENERAL REQUIREMENTS ==
+=========================
+
+1. The project must contain:
+   - A frontend web dashboard (HTML + CSS + JS)
+   - A simple backend API (Node.js + Express)
+   - A simulated ML prediction endpoint (no real ML needed, just a function returning fake predictions)
+   - Static “sensor data” JSON files
+   - Clean folder structure
+   - Fully runnable locally
+   - Compatible with Netlify (frontend) and AWS (backend)
+
+2. The theme:
+   “SmartStrawberry Farms – Monitoring temperature, humidity, and plant health using cloud + ML.”
+
+3. The dashboard must show:
+   - Live sensor values (simulated)
+   - A prediction box (ML result)
+   - A chart showing temperature and humidity over time (use Chart.js)
+   - Status indicators for each farm (7 farms)
+   - A simple navigation bar
+
+4. The backend API must include routes:
+   - GET /api/sensors → returns fake sensor values
+   - GET /api/prediction → returns a simulated ML prediction
+   - GET /api/farms → returns list of the 7 farms + status
+
+5. Create placeholder ML function:
+   function predictDiseaseRisk(sensorData) {
+      return {
+         riskLevel: "Low" | "Medium" | "High",
+         probability: 0–1
+      };
+   }
+
+6. Create sample sensor JSON:
+   temperature, humidity, lightLevel, timestamp.
+
+7. Frontend must call backend API using fetch().
+
+8. Add a README file explaining:
+   - how to run backend
+   - how to run frontend
+   - how to deploy frontend to Netlify
+   - how to deploy backend to AWS
+
+=========================
+== TECH REQUIREMENTS ==
+=========================
+
+- Frontend:
+  * HTML5 + CSS3 + JavaScript
+  * Chart.js included via CDN
+  * Mobile-friendly layout
+
+- Backend:
+  * Node.js + Express
+  * API runs on port 3000
+  * CORS enabled
+  * Fake ML prediction
+
+=========================
+== FILE STRUCTURE ==
+=========================
+
+Create the following structure:
+
+project/
+  ├─ frontend/
+  │    ├─ index.html
+  │    ├─ styles.css
+  │    ├─ script.js
+  │    ├─ assets/
+  │    └─ config.js
+  ├─ backend/
+  │    ├─ server.js
+  │    ├─ routes/
+  │    │      ├─ sensors.js
+  │    │      ├─ farms.js
+  │    │      └─ prediction.js
+  │    ├─ data/
+  │    │      ├─ sensors.json
+  │    │      └─ farms.json
+  │    ├─ ml/
+  │    │      └─ model.js
+  ├─ README.md
+
+=========================
+== EXTRA FEATURES ==
+=========================
+
+- Add a “Prediction Result” card in the dashboard UI
+- Add a “Farm Status Table” showing each farm and a status color (green / yellow / red)
+- Add a “System Overview” section explaining how the system works
+- Add a small footer with “Powered by Cloud Architecture & ML Simulation”
+
+=========================
+== DELIVERABLE ==
+=========================
+
+Output the FULL project:
+- Include every file
+- Include code in each file
+- Include styling
+- Include chart.js usage
+- Include backend routes and ML simulation
+- Ensure all code is valid and runnable
+
+Do NOT explain — just generate the entire working project.
